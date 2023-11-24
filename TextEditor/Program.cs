@@ -23,22 +23,77 @@ namespace TextEditor
             switch (userOption)
             {
                 case 1: Criar(); break;
-                case 2: Editar(); break;
+                case 2: Abrir(); break;
                 case 3: Apagar(); break;
                 case 4: System.Environment.Exit(0); break;
                 default: Console.WriteLine("Opção Inexistente"); break;
 
             }
         }
+        static void Criar() 
+        {
+            Console.Clear();
+            Console.WriteLine("Digite seu texto abaixo (ESC para SAIR) ");
+            Console.WriteLine("-------------------------");
 
+            string userText = "";
 
+            do //Faz sempre o bloco abaixo
+            {
+                userText += Console.ReadLine();
+                userText += Environment.NewLine;
+            }
+            while (Console.ReadKey().Key != ConsoleKey.Escape);//Enquanto essa condição não for satisfeita  
+            {
 
-        static void Criar() { }
+            }
 
-        static void Editar() { }
+            Salvar(userText);
+        }
+
+        static void Abrir() {
+
+            var path = "c:\\dev\\EditorTexto\\ArquivosDeTexto\\";
+
+            try
+            {
+                if (Directory.Exists(path))
+                {
+                    string[] arquivos = Directory.GetFiles(path);
+                    Console.WriteLine("Arquivos no diretório: ");
+                    foreach (string arquivo in arquivos)
+                    {
+                        Console.WriteLine(arquivo);
+                    }
+                    Console.WriteLine("Cheguei aqui");
+                }
+                else
+                {
+                    Console.WriteLine("O diretório não existe.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+            }
+        }
 
         static void Apagar() { }
-    }
 
-       
+        static void Salvar(string text)
+        {
+            Console.Clear();
+            var path = "c:\\dev\\EditorTexto\\ArquivosDeTexto\\";
+            var extensaoArquivo = ".txt";
+            Console.WriteLine("Digite o nome do arquivo: ");
+            var nomeDoArquivo = Console.ReadLine();
+
+            using (var leitor = new StreamWriter(path + nomeDoArquivo + extensaoArquivo)) //Fluxo para escrever o arquivo na pasta destino
+            {
+                leitor.Write(text);
+            }
+
+            Console.WriteLine($"Arquivo {nomeDoArquivo} salvo com sucesso !");
+        }
+    }  
 }

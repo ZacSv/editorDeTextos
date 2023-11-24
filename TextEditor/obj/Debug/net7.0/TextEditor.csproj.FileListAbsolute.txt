@@ -12,3 +12,19 @@ C:\Users\isacv\OneDrive\Área de Trabalho\exerciciosCSharp\EditorTexto\TextEdito
 C:\Users\isacv\OneDrive\Área de Trabalho\exerciciosCSharp\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.pdb
 C:\Users\isacv\OneDrive\Área de Trabalho\exerciciosCSharp\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.genruntimeconfig.cache
 C:\Users\isacv\OneDrive\Área de Trabalho\exerciciosCSharp\EditorTexto\TextEditor\obj\Debug\net7.0\ref\TextEditor.dll
+C:\Users\isacv\OneDrive\Área de Trabalho\exerciciosCSharp\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.sourcelink.json
+C:\dev\EditorTexto\TextEditor\bin\Debug\net7.0\TextEditor.exe
+C:\dev\EditorTexto\TextEditor\bin\Debug\net7.0\TextEditor.deps.json
+C:\dev\EditorTexto\TextEditor\bin\Debug\net7.0\TextEditor.runtimeconfig.json
+C:\dev\EditorTexto\TextEditor\bin\Debug\net7.0\TextEditor.dll
+C:\dev\EditorTexto\TextEditor\bin\Debug\net7.0\TextEditor.pdb
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.AssemblyInfoInputs.cache
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.AssemblyInfo.cs
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.csproj.CoreCompileInputs.cache
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.sourcelink.json
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.dll
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\refint\TextEditor.dll
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.pdb
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\TextEditor.genruntimeconfig.cache
+C:\dev\EditorTexto\TextEditor\obj\Debug\net7.0\ref\TextEditor.dll

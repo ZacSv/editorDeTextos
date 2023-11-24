@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fI4a8d2Tgkmj9EAr29D9CgK64cUU8G63zzq0pGF2oKMUW6lM7vVrPiSwNfELLQoVQ3YCKcStuOtYllN5bDDWjw==",
+  "dgSpecHash": "pxbTyE3dOUmtV+CrUfCsU0HE/FWa/6gXfJCyaze/08pqQc6+xWTwjsKN/52+RfK6ECrvQV+OxvdEpMNdpA8APQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\isacv\\OneDrive\\Área de Trabalho\\exerciciosCSharp\\EditorTexto\\TextEditor\\TextEditor.csproj",
+  "projectFilePath": "C:\\dev\\EditorTexto\\TextEditor\\TextEditor.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

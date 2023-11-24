@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\isacv\\OneDrive\\Área de Trabalho\\exerciciosCSharp\\EditorTexto\\TextEditor\\TextEditor.csproj": {}
+    "C:\\dev\\EditorTexto\\TextEditor\\TextEditor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\isacv\\OneDrive\\Área de Trabalho\\exerciciosCSharp\\EditorTexto\\TextEditor\\TextEditor.csproj": {
+    "C:\\dev\\EditorTexto\\TextEditor\\TextEditor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\isacv\\OneDrive\\Área de Trabalho\\exerciciosCSharp\\EditorTexto\\TextEditor\\TextEditor.csproj",
+        "projectUniqueName": "C:\\dev\\EditorTexto\\TextEditor\\TextEditor.csproj",
         "projectName": "TextEditor",
-        "projectPath": "C:\\Users\\isacv\\OneDrive\\Área de Trabalho\\exerciciosCSharp\\EditorTexto\\TextEditor\\TextEditor.csproj",
+        "projectPath": "C:\\dev\\EditorTexto\\TextEditor\\TextEditor.csproj",
         "packagesPath": "C:\\Users\\isacv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\isacv\\OneDrive\\Área de Trabalho\\exerciciosCSharp\\EditorTexto\\TextEditor\\obj\\",
+        "outputPath": "C:\\dev\\EditorTexto\\TextEditor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\isacv\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
