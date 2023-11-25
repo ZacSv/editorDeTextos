@@ -15,7 +15,7 @@ namespace TextEditor
             Console.Clear();
             Console.WriteLine(" 'O que deseja fazer: ");
             Console.WriteLine("1 - Criar um arquivo");
-            Console.WriteLine("2 - Abrir e editar um arquivo");
+            Console.WriteLine("2 - Abrir um arquivo");
             Console.WriteLine("3 - Deletar um arquivo");
             Console.WriteLine("4 - Fechar programa");
             short userOption = short.Parse(Console.ReadLine());
@@ -33,7 +33,7 @@ namespace TextEditor
         static void Criar()
         {
             Console.Clear();
-            Console.WriteLine("Digite seu texto abaixo (ESC para SAIR) ");
+            Console.WriteLine(" Digite seu texto abaixo (ESC para SAIR) ");
             Console.WriteLine("-------------------------");
 
             string userText = "";
@@ -66,8 +66,16 @@ namespace TextEditor
             var caminhoCompletoArquivo = path + arquivoParaAbrir + extensaoArquivo;
             using (var abrirArquivo = new StreamReader(caminhoCompletoArquivo))
             {
-                string textoDoArquivo = abrirArquivo.ReadToEnd();
-                Console.WriteLine(textoDoArquivo);
+                if (File.Exists(caminhoCompletoArquivo))
+                {
+                    string textoDoArquivo = abrirArquivo.ReadToEnd();
+                    Console.WriteLine(textoDoArquivo);
+                }
+                else
+                {
+                    Console.WriteLine($"Operação abortada, arquivo {arquivoParaAbrir} inexistente no diretorio {path}");
+                }
+               
             }
             Console.WriteLine("Press any key to return menu");
             Console.ReadKey();
@@ -91,7 +99,7 @@ namespace TextEditor
                     var arquivoQueSeraApagado = path + nomeArquivo + extensaoArquivo;
                     if (File.Exists(arquivoQueSeraApagado))
                     {
-                        Console.WriteLine("Tem certeza que deseja excluir o arquivo ? (Pressione S para SIM e qualquer outra tecla para NÃO");
+                        Console.WriteLine("Tem certeza que deseja excluir o arquivo ? (Pressione S para SIM e qualquer outra tecla para NÃO)");
                         string confirmacaoExclusao = Console.ReadLine();
 
                         //Garante a confirmação de exclusão
@@ -100,8 +108,6 @@ namespace TextEditor
                             File.Delete(arquivoQueSeraApagado);
                             File.Delete(arquivoQueSeraApagado);
                             Console.WriteLine("Arquivo excluído com sucesso !");
-                            Console.WriteLine("Press any key return to menu");
-                            Console.ReadKey();
                         }
                     }
                     else
@@ -126,7 +132,7 @@ namespace TextEditor
             Console.Clear();
             var path = "c:\\dev\\EditorTexto\\ArquivosDeTexto\\";
             var extensaoArquivo = ".txt";
-            Console.WriteLine("Digite o nome do arquivo: ");
+            Console.WriteLine(" Digite o nome do arquivo: ");
             var nomeDoArquivo = Console.ReadLine();
 
             using (var leitor = new StreamWriter(path + nomeDoArquivo + extensaoArquivo)) //Fluxo para escrever o arquivo na pasta destino
@@ -149,7 +155,7 @@ namespace TextEditor
                     Console.WriteLine("-------------------------------------------");
                     foreach (string arquivo in arquivos)
                     {
-                        Console.WriteLine(arquivo);
+                        Console.WriteLine(arquivo.Substring(35));
                     }
                     Console.WriteLine("-------------------------------------------");
                 }
