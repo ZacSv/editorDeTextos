@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TextEditor
 {
@@ -13,7 +15,7 @@ namespace TextEditor
         static void Menu()
         {
             Console.Clear();
-            Console.WriteLine(" 'O que deseja fazer: ");
+            Console.WriteLine(" O que deseja fazer: ");
             Console.WriteLine("1 - Criar um arquivo");
             Console.WriteLine("2 - Abrir um arquivo");
             Console.WriteLine("3 - Deletar um arquivo");
@@ -33,6 +35,7 @@ namespace TextEditor
         static void Criar()
         {
             Console.Clear();
+            DateTime dataCriacaoArquivo = DateTime.Now;
             Console.WriteLine(" Digite seu texto abaixo (ESC para SAIR) ");
             Console.WriteLine("-------------------------");
 
@@ -42,12 +45,10 @@ namespace TextEditor
             {
                 userText += Console.ReadLine();
                 userText += Environment.NewLine;
-            }
+            } 
             while (Console.ReadKey().Key != ConsoleKey.Escape);//Enquanto essa condição não for satisfeita  
-            {
-
-            }
-
+            userText += "Data de criação do arquivo: " + dataCriacaoArquivo;
+           
             Salvar(userText);
             Console.WriteLine("Press any key to return menu");
             Console.ReadKey();
@@ -69,13 +70,13 @@ namespace TextEditor
                 if (File.Exists(caminhoCompletoArquivo))
                 {
                     string textoDoArquivo = abrirArquivo.ReadToEnd();
-                    Console.WriteLine(textoDoArquivo);
+                    Console.WriteLine(textoDoArquivo);       
                 }
                 else
                 {
                     Console.WriteLine($"Operação abortada, arquivo {arquivoParaAbrir} inexistente no diretorio {path}");
                 }
-               
+
             }
             Console.WriteLine("Press any key to return menu");
             Console.ReadKey();
@@ -118,26 +119,26 @@ namespace TextEditor
                     Console.WriteLine("Pressione qualquer tecla para prosseguir e ESC para sair\n");
                 }
                 while (Console.ReadKey().Key != ConsoleKey.Escape);//Enquanto essa condição não for satisfeita  
-                    {
-                    }
+                {
+                }
             }
             finally
             {
                 Menu();
             }
         }
-            
+
         static void Salvar(string text)
         {
             Console.Clear();
             var path = "c:\\dev\\EditorTexto\\ArquivosDeTexto\\";
             var extensaoArquivo = ".txt";
-            Console.WriteLine(" Digite o nome do arquivo: ");
+            Console.WriteLine("  Digite o nome do arquivo: ");
             var nomeDoArquivo = Console.ReadLine();
 
-            using (var leitor = new StreamWriter(path + nomeDoArquivo + extensaoArquivo)) //Fluxo para escrever o arquivo na pasta destino
+            using (var escritor = new StreamWriter(path + nomeDoArquivo + extensaoArquivo)) //Fluxo para escrever o arquivo na pasta destino
             {
-                leitor.Write(text);
+                escritor.Write(text);
             }
 
             Console.WriteLine($"Arquivo {nomeDoArquivo} salvo com sucesso !");
