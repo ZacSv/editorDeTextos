@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
@@ -45,17 +46,18 @@ namespace TextEditor
             {
                 userText += Console.ReadLine();
                 userText += Environment.NewLine;
-            } 
+            }
             while (Console.ReadKey().Key != ConsoleKey.Escape);//Enquanto essa condição não for satisfeita  
             userText += "Data de criação do arquivo: " + dataCriacaoArquivo;
-           
+
             Salvar(userText);
             Console.WriteLine("Press any key to return menu");
             Console.ReadKey();
             Menu();
         }
 
-        static void Abrir() {
+        static void Abrir()
+        {
 
             Console.Clear();
             var path = "c:\\dev\\EditorTexto\\ArquivosDeTexto\\";
@@ -70,7 +72,7 @@ namespace TextEditor
                 if (File.Exists(caminhoCompletoArquivo))
                 {
                     string textoDoArquivo = abrirArquivo.ReadToEnd();
-                    Console.WriteLine(textoDoArquivo);       
+                    Console.WriteLine(textoDoArquivo);
                 }
                 else
                 {
@@ -85,7 +87,8 @@ namespace TextEditor
 
         }
 
-        static void Apagar() {
+        static void Apagar()
+        {
             try
             {
                 do
@@ -131,17 +134,40 @@ namespace TextEditor
         static void Salvar(string text)
         {
             Console.Clear();
+            //Define a extensão e caminho primário do arquivo
             var path = "c:\\dev\\EditorTexto\\ArquivosDeTexto\\";
             var extensaoArquivo = ".txt";
-            Console.WriteLine("  Digite o nome do arquivo: ");
-            var nomeDoArquivo = Console.ReadLine();
+            
+            //Solicita do usuário para que digite o nome do arquivo
+            Console.WriteLine(" Digite o nome do arquivo: ");
+            var nomeDoArquivo = Console.ReadLine().Trim();
+            
 
-            using (var escritor = new StreamWriter(path + nomeDoArquivo + extensaoArquivo)) //Fluxo para escrever o arquivo na pasta destino
+            //Faz um merge com o nome completo do arquivo
+            var caminhoDoArquivo = Path.Combine(path + nomeDoArquivo + extensaoArquivo);
+
+            //Logica para verificar se o nome do arquivo já existe no diretório
+            int contador = 1;
+            while (File.Exists(caminhoDoArquivo))
+            {
+                string novoNome = ($"{nomeDoArquivo}_{contador}");
+                caminhoDoArquivo = Path.Combine(path, novoNome + extensaoArquivo);
+                contador++;
+            }
+           
+            //Se não houver nenhum nome por padrão no arquivo o programa seta o nome "Default"
+            if (string.IsNullOrWhiteSpace(nomeDoArquivo))
+            {
+                string nomePadrao = "Default";
+                caminhoDoArquivo = Path.Combine(path + nomePadrao + extensaoArquivo);
+            }
+
+            using (var escritor = new StreamWriter(caminhoDoArquivo)) //Fluxo para escrever o arquivo na pasta destino
             {
                 escritor.Write(text);
             }
 
-            Console.WriteLine($"Arquivo {nomeDoArquivo} salvo com sucesso !");
+            Console.WriteLine($"Arquivo salvo com sucesso !");
         }
 
         static void ListarArquivosDoDiretorio(string caminhoComNomeDoArquivo)
@@ -151,7 +177,7 @@ namespace TextEditor
                 if (Directory.Exists(caminhoComNomeDoArquivo))
                 {
                     string[] arquivos = Directory.GetFiles(caminhoComNomeDoArquivo);
-                    
+
                     Console.WriteLine("ARQUIVOS NO DIRETÓRIO");
                     Console.WriteLine("-------------------------------------------");
                     foreach (string arquivo in arquivos)
@@ -171,5 +197,10 @@ namespace TextEditor
             }
         }
 
-    }    
+        static bool VerificaSeNomeDoArquivoExiste(string caminhoArquivo)
+        {
+            return File.Exists(caminhoArquivo);
+        }
+    }
+    
 }

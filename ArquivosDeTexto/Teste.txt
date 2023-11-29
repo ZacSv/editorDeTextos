@@ -1,0 +1,9 @@
+int contador = 1;
+while (File.Exists(caminhoDoArquivo))
+{
+    // Se existir, ajusta o nome do arquivo adicionando um contador ao final
+    string novoNome = $"{nomeDoArquivo}_{contador}";
+    caminhoDoArquivo = Path.Combine(path, novoNome + extensaoArquivo);
+    contador++;
+
+Data de criação do arquivo: 29/11/2023 17:16:06
